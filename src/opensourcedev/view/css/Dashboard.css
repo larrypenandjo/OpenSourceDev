@@ -1,0 +1,85 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13.08.2020, 06:18:17
+    Author     : Larry
+*/
+.anchorpane{
+    -fx-background-color: #EEEEEE; 
+}
+
+.vboxMenu{
+    -fx-background-color: #C4C4C4;
+}
+
+.logoPane{
+    -fx-background-color: #36675B;
+}
+
+.menuButton{
+    -fx-background-color: #36675B;
+    -fx-background-radius: 6px;
+}
+.menuButton:hover{
+    -fx-background-color: #49756B;
+    -fx-opacity:0.7;
+}
+.menuButton:focused{
+    -fx-background-color: #49756B;
+    -fx-opacity:0.7;
+}
+
+.financesPaneButtons{
+    -fx-background-color: #4C83A2;
+}
+.financesPaneButtons:hover{
+    /*-fx-background-color: #49756B;*/
+    -fx-opacity:0.7;
+}
+.financesPaneButtons:focused{
+    /*-fx-background-color: #49756B;*/
+    -fx-opacity:0.7;
+}
+
+.membersPaneButtons{
+    -fx-background-color: #71AD85;
+}
+.membersPaneButtons:hover{
+    /*-fx-background-color: #49756B;*/
+    -fx-opacity:0.7;
+}
+.membersPaneButtons:focused{
+    /*-fx-background-color: #49756B;*/
+    -fx-opacity:0.7;
+}
+
+.hboxTitlebar{
+    -fx-background-color: #C4C4C4;
+}
+
+.region{
+    -fx-background-color: #3A90D9;
+}
+.dashboardPanes{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 6px;
+}
+.sessionPaneFlag{
+    -fx-background-color: #96A24C;
+    -fx-background-radius: 6px;
+}
+.membersPaneFlag{
+   -fx-background-color: #71AD85;
+   -fx-background-radius: 6px;
+}
+.financesPaneFlag{
+   -fx-background-color: #4C83A2;
+   -fx-background-radius: 6px;
+}
+.eventsPaneFlag{
+   -fx-background-color: #9673AC;
+   -fx-background-radius: 6px;
+}
