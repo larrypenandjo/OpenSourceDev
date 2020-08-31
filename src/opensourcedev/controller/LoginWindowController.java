@@ -32,7 +32,7 @@ public class LoginWindowController implements Initializable{
     private TextField usernameField;
     @FXML
     private PasswordField passwordField;
-    private UserAlert notification = new UserAlert();
+    private UserAlert userAlert = new UserAlert();
     private ViewFactory viewFactory = new ViewFactory();
     private Image image = new Image("opensourcedev/images/delete.png");
 
@@ -50,10 +50,10 @@ public class LoginWindowController implements Initializable{
                     viewFactory.closeStage(current);
                     return;
                 case USERNAME_WRONG:
-                    notification.alert("ERROR", "Username wrong", image);
+                    userAlert.alert("ERROR", "Username wrong", image);
                     return;
                 case PASSWORD_WRONG:
-                    notification.alert("ERROR", "Password wrong", image);
+                    userAlert.alert("ERROR", "Password wrong", image);
                     return;
                 default:
                     return;
@@ -64,7 +64,7 @@ public class LoginWindowController implements Initializable{
 
     private boolean isFieldValid() {
         if(usernameField.getText().isEmpty()||passwordField.getText().isEmpty()){
-            notification.alert("ERROR", "Check fields", image);
+            userAlert.alert("ERROR", "Check fields", image);
             return false;
         }else{
             return true;
@@ -81,7 +81,6 @@ public class LoginWindowController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         usernameField.setText("admin");
-        passwordField.setText("12345");
     }
     
 }

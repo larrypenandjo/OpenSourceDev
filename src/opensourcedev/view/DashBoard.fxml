@@ -151,7 +151,7 @@
             <Insets right="15.0" />
          </padding>
       </HBox>
-      <AnchorPane fx:id="dashboardPane" layoutX="230.0" layoutY="60.0" prefHeight="515.0" prefWidth="620.0" styleClass="anchorpane" stylesheets="@css/Dashboard.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+      <AnchorPane fx:id="dashboardPane" layoutX="230.0" layoutY="60.0" prefHeight="515.0" prefWidth="620.0" styleClass="anchorpane" stylesheets="@css/Dashboard.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
          <children>
             <VBox layoutX="35.0" layoutY="36.0" translateY="15.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="41.0">
                <children>
@@ -247,7 +247,7 @@
             </VBox>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="editAdminDataPane" layoutX="230.0" layoutY="60.0" prefHeight="515.0" prefWidth="620.0" styleClass="anchorpane" stylesheets="@css/Dashboard.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+      <AnchorPane fx:id="editAdminDataPane" layoutX="230.0" layoutY="60.0" prefHeight="515.0" prefWidth="620.0" styleClass="anchorpane" stylesheets="@css/Dashboard.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
          <children>
             <Pane fx:id="adminPane" layoutX="91.0" layoutY="56.0" prefHeight="404.0" prefWidth="438.0" styleClass="dashboardPanes" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="91.0" AnchorPane.rightAnchor="91.0" AnchorPane.topAnchor="56.0">
                <children>
