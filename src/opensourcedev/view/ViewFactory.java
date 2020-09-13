@@ -8,6 +8,7 @@ package opensourcedev.view;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -20,9 +21,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import opensourcedev.controller.DashBoardController;
 
 /**
  *
@@ -43,11 +46,17 @@ public class ViewFactory {
 
     public void showDashboard() {
         System.out.println("Show dashbord called");
+//        DashBoardController dashBoardController = new DashBoardController();
+//        openStage(dashBoardController, "DashBoard.fxml");
         openStage("DashBoard.fxml");
     }
 
+//private void openStage(DashBoardController dashBoardController, String fxmlFile) {//method should receive an abstract base controller class which can either be a dashboardwindow- or loginwindowcontroller
     private void openStage(String fxmlFile) {
         try {
+//            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
+//            fxmlLoader.setController(dashBoardController);
+//            Parent parent = fxmlLoader.load();
             Stage stage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource(fxmlFile));
             Scene scene = new Scene(root);
@@ -56,7 +65,7 @@ public class ViewFactory {
                 stage.setMinHeight(575);
                 stage.setMaxHeight(700);
                 stage.setMinWidth(800);
-                stage.setMaxWidth(900);
+                stage.setMaxWidth(1000);
             }
             stage.show();
             activeParentNodes.add(root);
@@ -79,23 +88,38 @@ public class ViewFactory {
 //
 //            }
 //        }
-////    }
-    public void resizeLayoutX(Pane pane) {//resizing X position of Nodes within a pane
-        ObservableList<Node> paneChildren = null;
-        paneChildren = pane.getChildren();
-        HashMap<Node, Double> layoutXByNodes = new HashMap<>();
-        for (Node node : paneChildren) {
-            layoutXByNodes.put(node, node.getLayoutX());//this operation needs to be outside the listener to avoid getLayoutX() 
-        }                                               //returning updated value of the X current node                
+//   }
+    public void resizeLayoutXAdminPaneChildNodes(Pane pane) {//resizing X position of Nodes within a pane
         pane.widthProperty().addListener(new ChangeListener<Number>() {
             @Override
-            public void changed(ObservableValue<? extends Number> obs, Number oldvalue, Number newvalue) {
-                oldvalue = pane.getPrefWidth();
-                for (Node node : layoutXByNodes.keySet()) {
-                    node.layoutXProperty().bind(new SimpleDoubleProperty(layoutXByNodes.get(node) + (newvalue.doubleValue() - oldvalue.doubleValue()) / 2));
+            public void changed(ObservableValue<? extends Number> obs, Number oldValue, Number newValue) {
+                double xPosition = 0;
+                for (Node node : pane.getChildren()) {//new x-position = initial x position + (deltaWidth of pane)/2
+                    if (oldValue.doubleValue() != 0) {
+                        xPosition = ((newValue.doubleValue() - oldValue.doubleValue()) / 2) + node.getLayoutX();
+                        node.layoutXProperty().bind(new SimpleDoubleProperty(xPosition));//actualize the position of the node
+                    }
                 }
             }
         });
     }
 
+    public void resizeLayoutXStaffPaneChildNodes(ObservableList<Node> staffPane_Panes) {
+        for (Node node : staffPane_Panes) {
+            if (node instanceof Pane) {
+                ((Pane) node).widthProperty().addListener(new ChangeListener<Number>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
+                        double xPosition = 0;
+                        for (Node childNode : ((Pane) node).getChildren()) {
+                            if (oldValue.doubleValue() != 0) {
+                                xPosition = ((newValue.doubleValue() - oldValue.doubleValue()) / 2) + childNode.getLayoutX();
+                                childNode.layoutXProperty().bind(new SimpleDoubleProperty(xPosition));//actualize the position of the node
+                            }
+                        }
+                    }
+                });
+            }
+        }
+    }
 }

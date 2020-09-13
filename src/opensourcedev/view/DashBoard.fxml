@@ -49,7 +49,7 @@
                   <Insets left="70.0" />
                </padding></Button>
             <Region maxHeight="30.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-            <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" minHeight="45.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" styleClass="menuButton" stylesheets="@css/Dashboard.css" text="STAFF" textFill="WHITE">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" minHeight="45.0" mnemonicParsing="false" onAction="#displayStaffPane" prefHeight="50.0" prefWidth="230.0" styleClass="menuButton" stylesheets="@css/Dashboard.css" text="STAFF" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -134,14 +134,32 @@
       </VBox>
       <HBox alignment="CENTER" layoutX="230.0" prefHeight="60.0" prefWidth="620.0" spacing="20.0" styleClass="hboxTitlebar" stylesheets="@css/Dashboard.css" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="currentMenuLbl" prefHeight="17.0" prefWidth="78.0" textFill="WHITE">
-               <padding>
-                  <Insets left="15.0" />
-               </padding>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
+            <VBox spacing="5.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <children>
+                  <Label fx:id="currentMenuLbl" prefHeight="20.0" prefWidth="102.0" textFill="WHITE">
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="staffPaneElementLbl" prefHeight="20.0" prefWidth="136.0" textFill="WHITE" VBox.vgrow="ALWAYS">
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
             <Region prefHeight="200.0" prefWidth="200.0" styleClass="region" HBox.hgrow="ALWAYS" />
             <FontAwesomeIconView fill="WHITE" glyphName="USER" onMouseClicked="#editAdminData" size="20" />
             <MaterialDesignIconView fill="WHITE" glyphName="SETTINGS" onMouseClicked="#editApplicationSettings" size="20" />
@@ -151,7 +169,7 @@
             <Insets right="15.0" />
          </padding>
       </HBox>
-      <AnchorPane fx:id="dashboardPane" layoutX="230.0" layoutY="60.0" prefHeight="515.0" prefWidth="620.0" styleClass="anchorpane" stylesheets="@css/Dashboard.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+      <AnchorPane fx:id="dashboardPane" layoutX="230.0" layoutY="60.0" prefHeight="515.0" prefWidth="620.0" styleClass="anchorpane" stylesheets="@css/Dashboard.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
          <children>
             <VBox layoutX="35.0" layoutY="36.0" translateY="15.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="41.0">
                <children>
@@ -259,6 +277,107 @@
                   <Button layoutX="261.0" layoutY="332.0" mnemonicParsing="false" onAction="#saveUserPassword" prefHeight="25.0" prefWidth="65.0" styleClass="menuButton" text="Save" textFill="WHITE" />
                </children>
             </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="staffPane" layoutX="230.0" layoutY="60.0" prefHeight="515.0" prefWidth="620.0" styleClass="anchorpane_staff" stylesheets="@css/Staff.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+         <children>
+            <VBox layoutX="35.0" layoutY="56.0" AnchorPane.bottomAnchor="56.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="56.0">
+               <children>
+                  <HBox fx:id="staffPaneHbox1" prefHeight="150.0" prefWidth="538.0">
+                     <children>
+                        <Pane fx:id="presidentPane" onMouseClicked="#displayStaffPaneElement_President" prefHeight="150.0" prefWidth="200.0" styleClass="staffPane_president" stylesheets="@css/Staff.css">
+                           <children>
+                              <Label layoutX="58.0" layoutY="38.0" text="PRESIDENT" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="65.0" layoutY="107.0" text="President" textFill="WHITE" />
+                           </children>
+                        </Pane>
+                        <Region minWidth="15.0" HBox.hgrow="ALWAYS" />
+                        <Pane fx:id="vpPane" onMouseClicked="#displayStaffPaneElement_VP" prefHeight="150.0" prefWidth="200.0" styleClass="staffPane_vp" stylesheets="@css/Staff.css">
+                           <children>
+                              <Label layoutX="43.0" layoutY="38.0" text="VICE PRESIDENT" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="52.0" layoutY="107.0" text="Vice President" textFill="WHITE" />
+                           </children>
+                        </Pane>
+                        <Region minWidth="15.0" HBox.hgrow="ALWAYS" />
+                        <Pane fx:id="AutorPane" onMouseClicked="#displayStaffPaneElement_Auditor" prefHeight="150.0" prefWidth="200.0" styleClass="staffPane_auditor" stylesheets="@css/Staff.css">
+                           <children>
+                              <Label layoutX="63.0" layoutY="38.0" text="AUDITOR" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="70.0" layoutY="107.0" text="Auditor" textFill="WHITE" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <Region VBox.vgrow="ALWAYS" />
+                  <HBox fx:id="staffPaneHbox2" prefHeight="150.0" prefWidth="538.0">
+                     <children>
+                        <Pane fx:id="censorPane" onMouseClicked="#displayStaffPaneElement_Censor" prefHeight="150.0" prefWidth="200.0" styleClass="staffPane_censor" stylesheets="@css/Staff.css">
+                           <children>
+                              <Label fx:id="censorLbl" layoutX="63.0" layoutY="38.0" text="CENSOR" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="censorName" layoutX="68.0" layoutY="106.0" text="Censor" textFill="WHITE" />
+                           </children>
+                        </Pane>
+                        <Region minWidth="15.0" HBox.hgrow="ALWAYS" />
+                        <Pane fx:id="secretaryPane" onMouseClicked="#displayStaffPaneElement_Secretary" prefHeight="150.0" prefWidth="200.0" styleClass="staffPane_secretary" stylesheets="@css/Staff.css">
+                           <children>
+                              <Label layoutX="56.0" layoutY="39.0" text="SECRETARY" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="52.0" layoutY="107.0" text="Vice President" textFill="WHITE" />
+                           </children>
+                        </Pane>
+                        <Region minWidth="15.0" HBox.hgrow="ALWAYS" />
+                        <Pane fx:id="treasurerPane" onMouseClicked="#displayStaffPaneElement_Treasurer" prefHeight="150.0" prefWidth="200.0" styleClass="staffPane_treasurer" stylesheets="@css/Staff.css">
+                           <children>
+                              <Label layoutX="53.0" layoutY="38.0" text="TREASURER" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="70.0" layoutY="107.0" text="Auditor" textFill="WHITE" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="staffPaneElement" layoutX="230.0" layoutY="60.0" prefHeight="515.0" prefWidth="620.0" styleClass="anchorpane_staff" stylesheets="@css/Staff.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+         <children>
+            <Pane prefHeight="77.0" prefWidth="620.0" styleClass="whitepane" stylesheets="@css/Staff.css" AnchorPane.bottomAnchor="438.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Pane fx:id="staffPaneBaner_Pane" layoutX="93.0" layoutY="14.0" prefHeight="50.0" prefWidth="192.0">
+                     <children>
+                        <Label fx:id="staffPaneBaner_Label" layoutX="65.0" layoutY="15.0" text="President" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <FontAwesomeIconView fx:id="staffPaneBaner_arrow" glyphName="ARROW_CIRCLE_LEFT" layoutX="32.0" layoutY="49.0" size="30" />
+                  <!--fill="#96a24c"-->
+               </children>
+            </Pane>
+            <Pane layoutY="80.0" prefHeight="435.0" prefWidth="620.0" styleClass="whitepane" stylesheets="@css/Staff.css" />
          </children>
       </AnchorPane>
    </children>

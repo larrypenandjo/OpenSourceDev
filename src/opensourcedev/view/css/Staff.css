@@ -1,0 +1,63 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11.09.2020, 06:30:51
+    Author     : Larry
+*/
+.anchorpane_staff{
+    -fx-background-color: #EEEEEE; 
+}
+.whitepane{
+   -fx-background-color: #FFFFFF;
+}
+.staffPane_president{
+    -fx-background-color: #96A24C;
+    -fx-background-radius: 6px;
+    -fx-opacity:0.8;
+}
+.staffPane_vp{
+    -fx-background-color: #71AD85;
+    -fx-background-radius: 6px;
+    -fx-opacity:0.8;
+}
+.staffPane_auditor{
+    -fx-background-color: #4C83A2;
+    -fx-background-radius: 6px;
+    -fx-opacity:0.8;
+}
+.staffPane_censor{
+    -fx-background-color: #9673AC;
+    -fx-background-radius: 6px;
+    -fx-opacity:0.8;
+}
+.staffPane_secretary{
+    -fx-background-color: #607773;
+    -fx-background-radius: 6px;
+    -fx-opacity:0.8;
+}
+.staffPane_treasurer{
+    -fx-background-color: #625462;
+    -fx-background-radius: 6px;
+    -fx-opacity:0.8;
+}
+.staffPaneBaner-arrow-president{
+    -fx-fill: #96A24C;
+}
+.staffPaneBaner-arrow-vp{
+    -fx-fill: #71AD85;
+}
+.staffPaneBaner-arrow-auditor{
+    -fx-fill: #4C83A2;
+}
+.staffPaneBaner-arrow-censor{
+    -fx-fill: #9673AC;
+}
+.staffPaneBaner-arrow-secretary{
+    -fx-fill: #607773;
+}
+.staffPaneBaner-arrow-treasurer{
+    -fx-fill: #625462;
+}
